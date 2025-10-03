@@ -1,89 +1,26 @@
-# [Sqids PHP](https://sqids.org/php)
+# Sqids (backport for legacy PHP)
 
-[![Latest Version](https://badgen.net/packagist/v/sqids/sqids)](https://packagist.org/packages/sqids/sqids)
-[![Build Status](https://badgen.net/github/checks/sqids/sqids-php?label=build&icon=github)](https://github.com/sqids/sqids-php/actions)
-[![Monthly Downloads](https://badgen.net/packagist/dm/sqids/sqids)](https://packagist.org/packages/sqids/sqids/stats)
+[![Test Suite](https://github.com/dakujem/sqids-legacy-backport/actions/workflows/phpunit.yml/badge.svg)](https://github.com/dakujem/sqids-legacy-backport/actions/workflows/phpunit.yml)
 
-[Sqids](https://sqids.org/php) (*pronounced "squids"*) is a small library that lets you **generate unique IDs from numbers**. It's good for link shortening, fast & URL-safe ID generation and decoding back into numbers for quicker database lookups.
+>
+> 💿 `composer require dakujem/sqids-legacy-backport`
+>
 
-Features:
+This is a backport of the original package [sqids/sqids](https://github.com/sqids/sqids-php)
+for **PHP 7.4** and **PHP 8.0** only.
 
-- **Encode multiple numbers** - generate short IDs from one or several non-negative numbers
-- **Quick decoding** - easily decode IDs back into numbers
-- **Unique IDs** - generate unique IDs by shuffling the alphabet once
-- **ID padding** - provide minimum length to make IDs more uniform
-- **URL safe** - auto-generated IDs do not contain common profanity
-- **Randomized output** - Sequential input provides nonconsecutive IDs
-- **Many implementations** - Support for [40+ programming languages](https://sqids.org/)
 
-## 🧰 Use-cases
+## Documentation
 
-Good for:
+Please refer to the documentation of the original package:
+👉 [sqids/sqids](https://github.com/sqids/sqids-php) 👈
 
-- Generating IDs for public URLs (eg: link shortening)
-- Generating IDs for internal systems (eg: event tracking)
-- Decoding for quicker database lookups (eg: by primary keys)
 
-Not good for:
+## Migration to supported PHP version
 
-- Sensitive data (this is not an encryption library)
-- User IDs (can be decoded revealing user count)
+After updating your project to a supported PHP version, change your project requirement from `dakujem/sqids-legacy-backport` to `sqids/sqids`.
+Chances are, you need not do anything else.
 
-## 🚀 Getting started
-
-Require this package, with [Composer](https://getcomposer.org), in the root directory of your project.
-
-```bash
-composer require sqids/sqids
-```
-
-Then you can import the class into your application:
-
-```php
-use Sqids\Sqids;
-$sqids = new Sqids();
-```
-
-> [!IMPORTANT]
-> Sqids require either the [`bcmath`](https://secure.php.net/manual/en/book.bc.php) or [`gmp`](https://secure.php.net/manual/en/book.gmp.php) extension in order to work.
-
-## 👩‍💻 Examples
-
-Simple encode & decode:
-
-```php
-$sqids = new Sqids();
-$id = $sqids->encode([1, 2, 3]); // "86Rf07"
-$numbers = $sqids->decode($id); // [1, 2, 3]
-```
-
-> [!NOTE]
-> 🚧 Because of the algorithm's design, **multiple IDs can decode back into the same sequence of numbers**. If it's important to your design that IDs are canonical, you have to manually re-encode decoded numbers and check that the generated ID matches.
-
-Enforce a *minimum* length for IDs:
-
-```php
-$sqids = new Sqids(minLength: 10);
-$id = $sqids->encode([1, 2, 3]); // "86Rf07xd4z"
-$numbers = $sqids->decode($id); // [1, 2, 3]
-```
-
-Randomize IDs by providing a custom alphabet:
-
-```php
-$sqids = new Sqids(alphabet: 'FxnXM1kBN6cuhsAvjW3Co7l2RePyY8DwaU04Tzt9fHQrqSVKdpimLGIJOgb5ZE');
-$id = $sqids->encode([1, 2, 3]); // "B4aajs"
-$numbers = $sqids->decode($id); // [1, 2, 3]
-```
-
-Prevent specific words from appearing anywhere in the auto-generated IDs:
-
-```php
-$sqids = new Sqids(blocklist: ['86Rf07']);
-$id = $sqids->encode([1, 2, 3]); // "se8ojk"
-$numbers = $sqids->decode($id); // [1, 2, 3]
-```
-
-## 📝 License
-
-[MIT](LICENSE)
+This backport is based on [a stable release](https://github.com/sqids/sqids-php/releases) of `sqids/sqids`
+current at the time of update.
+PHP 8 features (most notably constructor property promotion) have been removed or replaced.
