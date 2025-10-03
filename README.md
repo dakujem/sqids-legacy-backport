@@ -6,7 +6,7 @@
 > 💿 `composer require dakujem/sqids-legacy-backport`
 >
 
-This is a backport of the original package [sqids/sqids](https://github.com/sqids/sqids-php)
+This is a trivial backport of the original package [sqids/sqids](https://github.com/sqids/sqids-php)
 for **PHP 7.4** and **PHP 8.0** only.
 
 
@@ -21,6 +21,6 @@ Please refer to the documentation of the original package:
 After updating your project to a supported PHP version, change your project requirement from `dakujem/sqids-legacy-backport` to `sqids/sqids`.
 Chances are, you need not do anything else.
 
-This backport is based on [a stable release](https://github.com/sqids/sqids-php/releases) of `sqids/sqids`
-current at the time of update.
+This backport is based on [the same tag](https://github.com/sqids/sqids-php/tags) of `sqids/sqids`
+it is released under.  
 PHP 8 features (most notably constructor property promotion) have been removed or replaced.
