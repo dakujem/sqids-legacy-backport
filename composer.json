@@ -1,6 +1,6 @@
 {
-    "name": "sqids/sqids",
-    "description": "Generate short YouTube-looking IDs from numbers",
+    "name": "dakujem/sqids-legacy-backport",
+    "description": "Backport of sqids/sqids for PHP 7.4 and PHP 8.0",
     "license": "MIT",
     "keywords": [
         "sqids",
@@ -9,12 +9,19 @@
         "encode",
         "decode",
         "sqids",
-        "ids"
+        "ids",
+        "php74",
+        "backport"
     ],
     "homepage": "https://sqids.org/php",
     "require": {
-        "php": "7.4.*",
-        "ext-mbstring": "*"
+        "php": "^7.4 || ^8.0"
+    },
+    "replace": {
+        "sqids/sqids": "self.version"
+    },
+    "conflict": {
+        "sqids/sqids": "*"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.6"
