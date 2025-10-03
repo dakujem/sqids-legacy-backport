@@ -1,6 +1,6 @@
 # Sqids (backport for legacy PHP)
 
-[![Test Suite](https://github.com/dakujem/sqids-legacy-backport/actions/workflows/phpunit.yml/badge.svg)](https://github.com/dakujem/sqids-legacy-backport/actions/workflows/phpunit.yml)
+[![Test suite](https://github.com/dakujem/sqids-legacy-backport/actions/workflows/phpunit.yml/badge.svg)](https://github.com/dakujem/sqids-legacy-backport/actions/workflows/phpunit.yml)
 
 >
 > 💿 `composer require dakujem/sqids-legacy-backport`
