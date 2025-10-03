@@ -27,9 +27,9 @@ class Sqids implements SqidsInterface
 {
     private const MIN_LENGTH_LIMIT = 255;
 
-    final public const DEFAULT_ALPHABET = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-    final public const DEFAULT_MIN_LENGTH = 0;
-    final public const DEFAULT_BLOCKLIST = [
+    public const DEFAULT_ALPHABET = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    public const DEFAULT_MIN_LENGTH = 0;
+    public const DEFAULT_BLOCKLIST = [
         "aand",
         "ahole",
         "allupato",
@@ -238,15 +238,20 @@ class Sqids implements SqidsInterface
     ];
 
     protected MathInterface $math;
-
     protected ?string $blocklistRegex;
+    protected string $alphabet;
+    protected int $minLength;
+    protected array $blocklist;
 
     /** @throws InvalidArgumentException */
     public function __construct(
-        protected string $alphabet = self::DEFAULT_ALPHABET,
-        protected int $minLength = self::DEFAULT_MIN_LENGTH,
-        protected array $blocklist = self::DEFAULT_BLOCKLIST,
+        string $alphabet = self::DEFAULT_ALPHABET,
+        int $minLength = self::DEFAULT_MIN_LENGTH,
+        array $blocklist = self::DEFAULT_BLOCKLIST
     ) {
+        $this->alphabet = $alphabet;
+        $this->minLength = $minLength;
+        $this->blocklist = $blocklist;
         $this->math = $this->getMathExtension();
 
         if ($alphabet == '') {
