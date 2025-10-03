@@ -15,7 +15,8 @@
     ],
     "homepage": "https://sqids.org/php",
     "require": {
-        "php": "^7.4 || ^8.0"
+        "php": "^7.4 || ^8.0",
+        "ext-mbstring": "*"
     },
     "replace": {
         "sqids/sqids": "self.version"

@@ -249,9 +249,6 @@ class Sqids implements SqidsInterface
         int $minLength = self::DEFAULT_MIN_LENGTH,
         array $blocklist = self::DEFAULT_BLOCKLIST
     ) {
-        $this->alphabet = $alphabet;
-        $this->minLength = $minLength;
-        $this->blocklist = $blocklist;
         $this->math = $this->getMathExtension();
 
         if ($alphabet == '') {
@@ -274,6 +271,8 @@ class Sqids implements SqidsInterface
             throw new InvalidArgumentException('Minimum length has to be between 0 and ' . self::MIN_LENGTH_LIMIT);
         }
 
+        $this->minLength = $minLength;
+        $this->blocklist = $blocklist;
         $this->blocklistRegex = $this->buildBlocklistRegex();
         $this->alphabet = $this->shuffle($alphabet);
     }

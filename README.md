@@ -16,10 +16,14 @@ Please refer to the documentation of the original package:
 👉 [sqids/sqids](https://github.com/sqids/sqids-php) 👈
 
 
-## Migration to supported PHP version
+## Migration to PHP 8.1+
 
-After updating your project to a supported PHP version, change your project requirement from `dakujem/sqids-legacy-backport` to `sqids/sqids`.
-Chances are, you need not do anything else.
+After updating your project to a version supported by the original `sqids/sqids`,
+change your project requirement from `dakujem/sqids-legacy-backport` to `sqids/sqids`.  
+That should be it.
+
+
+## Compatibility
 
 This backport is based on [the same tag](https://github.com/sqids/sqids-php/tags) of `sqids/sqids`
 it is released under.  
